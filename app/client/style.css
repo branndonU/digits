@@ -15,7 +15,7 @@
 body {
   --bs-dark: var(--matr-navbar-bg);
   --bs-dark-rgb: var(--matr-navbar-bg-rgb);
-  background: fixed center url("app/public/images/images.jpeg");
+  background: fixed center url("images/image.jpg");
   background-size: cover;
 }
 body .navbar {
