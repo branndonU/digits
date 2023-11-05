@@ -1,15 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroup } from 'react-bootstrap';
-
 /* Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+// eslint-disable-next-line react/prop-types
 const Note = ({ note }) => (
   <ListGroup.Item>
     <p className="fw-lighter">{note.createdAt.toLocaleDateString('en-US')}</p>
     <p>{note.note}</p>
   </ListGroup.Item>
 );
-
 
 // Require a document to be passed to this component.
 Note.propTypes = {

@@ -13,7 +13,6 @@ Meteor.publish(Stuffs.userPublicationName, function () {
   }
   return this.ready();
 });
-
 Meteor.publish(Contacts.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
@@ -21,7 +20,6 @@ Meteor.publish(Contacts.userPublicationName, function () {
   }
   return this.ready();
 });
-
 Meteor.publish(Notes.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
@@ -29,7 +27,12 @@ Meteor.publish(Notes.userPublicationName, function () {
   }
   return this.ready();
 });
-
+Meteor.publish(Notes.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Notes.collection.find();
+  }
+  return this.ready();
+});
 // Admin-level publication.
 // If logged in and with admin role, then publish all documents from all users. Otherwise, publish nothing.
 Meteor.publish(Stuffs.adminPublicationName, function () {
@@ -46,13 +49,7 @@ Meteor.publish(Contacts.adminPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish(Notes.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Notes.collection.find();
-  }
-  return this.ready();
-});
-// planning:roles publication
+// alanning:roles publication
 // Recommended code to publish roles for each user.
 Meteor.publish(null, function () {
   if (this.userId) {

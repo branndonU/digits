@@ -6,6 +6,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Contact from '../components/Contact';
 import { Contacts } from '../../api/contact/Contacts';
 import { Notes } from '../../api/note/Notes';
+
 /* Renders a table containing all of the Contact documents. Use <StuffItem> to render each row. */
 const ListContacts = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
@@ -19,6 +20,7 @@ const ListContacts = () => {
     const rdy = subscription.ready() && subscription2.ready();
     // Get the Contact documents
     const contactItems = Contacts.collection.find({}).fetch();
+    // Get the Note documents
     const noteItems = Notes.collection.find({}).fetch();
     return {
       contacts: contactItems,
@@ -35,14 +37,12 @@ const ListContacts = () => {
             <h2>List Contacts</h2>
           </Col>
           <Row xs={1} md={2} lg={3} className="g-4">
-            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} notes={notes.filter(note => (note
-              .contactId === contact._id))} /></Col>))}
+            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} notes={notes.filter(note => (note.contactId === contact._id))} /></Col>))}
           </Row>
         </Col>
       </Row>
     </Container>
   ) : <LoadingSpinner />);
-
 };
 
 export default ListContacts;

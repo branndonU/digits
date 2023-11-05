@@ -1,14 +1,11 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
-import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import PropTypes from 'prop-types';
 import { Notes } from '../../api/note/Notes';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
-
-
-
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   note: String,
@@ -25,9 +22,8 @@ const AddNote = ({ owner, contactId }) => {
   // On submit, insert the data.
   const submit = (data, formRef) => {
     const { note, createdAt } = data;
-    const owner = Meteor.user().username;
     Notes.collection.insert(
-      { note, contactId, createdAt, owner },
+      { note, createdAt },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -50,7 +46,7 @@ const AddNote = ({ owner, contactId }) => {
             <Card>
               <Card.Body>
                 <TextField name="note" />
-                <SubmitField />
+                <SubmitField value="Submit" />
                 <ErrorsField />
                 <HiddenField name="owner" value={owner} />
                 <HiddenField name="contactId" value={contactId} />
@@ -68,5 +64,4 @@ AddNote.propTypes = {
   owner: PropTypes.string.isRequired,
   contactId: PropTypes.string.isRequired,
 };
-
 export default AddNote;

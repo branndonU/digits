@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Card, Image, ListGroup } from 'react-bootstrap';
-import Note from './Note'; // Correct the import path
-import AddNote from './AddNote';
+import Note from './Note';
+import AddNote from '../pages/AddNote';
 
+/* Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+// eslint-disable-next-line react/prop-types
 const Contact = ({ contact, notes }) => (
   <Card className="h-100">
     <Card.Header>
@@ -20,9 +22,11 @@ const Contact = ({ contact, notes }) => (
       <AddNote owner={contact.owner} contactId={contact._id} />
       <Link to={`/edit/${contact._id}`}>Edit</Link>
     </Card.Body>
+
   </Card>
 );
 
+// Require a document to be passed to this component.
 Contact.propTypes = {
   contact: PropTypes.shape({
     firstName: PropTypes.string,
@@ -30,8 +34,8 @@ Contact.propTypes = {
     address: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
-    owner: PropTypes.string,
     _id: PropTypes.string,
+    owner: PropTypes.string,
   }).isRequired,
   notes: PropTypes.arrayOf(PropTypes.shape({
     note: PropTypes.string,
