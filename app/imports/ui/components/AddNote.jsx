@@ -5,7 +5,8 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Notes } from '../../api/note/Notes';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap-5';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+
 
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -48,12 +49,12 @@ const AddNote = ({ owner, contactId }) => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                  <TextField name="note" />
-                  <SubmitField />
-                  <ErrorsField />
-                  <HiddenField name="owner" value={owner} />
-                  <HiddenField name="contactId" value={contactId} />
-                  <HiddenField name="createdAt" value={new Date()} />
+                <TextField name="note" />
+                <SubmitField />
+                <ErrorsField />
+                <HiddenField name="owner" value={owner} />
+                <HiddenField name="contactId" value={contactId} />
+                <HiddenField name="createdAt" value={new Date()} />
               </Card.Body>
             </Card>
           </AutoForm>

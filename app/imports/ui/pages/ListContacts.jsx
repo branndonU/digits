@@ -27,24 +27,21 @@ const ListContacts = () => {
     };
   }, []);
 
-  return ready ? (
+  return (ready ? (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
             <h2>List Contacts</h2>
           </Col>
-          <Row>
-            {contacts.map((contact) => (
-              <Col key={contact._id} xs={12} md={6} lg={4}>
-                <Contact contact={contact} notes={notes.filter(note => note.contactId === contact._id)} />
-              </Col>
-            ))}
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {contacts.map((contact) => (<Col key={contact._id}><Contact contact={contact} notes={notes.filter(note => (note
+              .contactId === contact._id))} /></Col>))}
           </Row>
         </Col>
       </Row>
     </Container>
-  ) : <LoadingSpinner />;
+  ) : <LoadingSpinner />);
 
 };
 
