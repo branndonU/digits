@@ -1,4 +1,4 @@
-<img src="Landding.png">
+<img src="doc/Landding.png">
 
 ## Digits
 
