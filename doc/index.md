@@ -74,7 +74,7 @@ meteor npm run lint
 
 When you retrieve the app at http://localhost:3000, this is what should be displayed:
 
-<img src="doc/landing.png">
+
 
 The next step is to use the Login menu to either Login to an existing account or register a new account.
 
@@ -82,13 +82,13 @@ The next step is to use the Login menu to either Login to an existing account or
 
 Clicking on the Login link, then on the Sign In menu item displays this page:
 
-<img src="doc/signin.png">
+
 
 #### Landing (after Login) page, non-Admin user
 
 Once you log in (either to an existing account or by creating a new one), the navbar changes as follows:
 
-<img src="doc/userhome.png">
+
 
 You can now add new Stuff documents, and list the Stuff you have created. Note you cannot see any Stuff created by other users.
 
@@ -96,13 +96,13 @@ You can now add new Stuff documents, and list the Stuff you have created. Note y
 
 After logging in, here is the page that allows you to add new Contacts:
 
-<img src="doc/addcontact.png">
+
 
 #### List Contact page
 
 After logging in, here is the page that allows you to list all the Contacts you have created:
 
-<img src="doc/listcontacts.png">
+
 
 You click the "Edit" link to go to the Edit Stuff page, shown next.
 
@@ -110,18 +110,18 @@ You click the "Edit" link to go to the Edit Stuff page, shown next.
 
 After clicking on the "Edit" link associated with an item, this page displays that allows you to change and save it:
 
-<img src="doc/editcontacts.png">
+
 
 #### Landing (after Login), Admin user
 
 You can define an "admin" user in the settings.json file. This user, after logging in, gets a special entry in the navbar:
 
-<img src="doc/adminhome.png">
+
 
 #### Admin page (list all users stuff)
 
 To provide a simple example of a "super power" for Admin users, the Admin page lists all of the Stuff by all of the users:
 
-<img src="doc/admin.png">
+
 
 Note that non-admin users cannot get to this page, even if they type in the URL by hand.
